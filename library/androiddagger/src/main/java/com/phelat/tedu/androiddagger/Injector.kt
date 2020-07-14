@@ -25,7 +25,28 @@ inline fun <reified Component : DispatcherComponent> Fragment.inject() {
         throw IllegalArgumentException(
             String.format(
                 Locale.ENGLISH,
-                "No injector was found for %s",
+                "No fragment injector was found for %s",
+                this.javaClass.canonicalName
+            )
+        )
+    }
+    val androidInjector = dispatcherContainer.androidInjector(Component::class)
+    androidInjector.inject(this)
+}
+
+inline fun <reified Component : DispatcherComponent> Activity.inject() {
+    var dispatcherContainer: DispatcherContainer? = null
+    if (this is DispatcherContainer) {
+        dispatcherContainer = this
+    }
+    if (null == dispatcherContainer && application is DispatcherContainer) {
+        dispatcherContainer = application as DispatcherContainer
+    }
+    if (null == dispatcherContainer) {
+        throw IllegalArgumentException(
+            String.format(
+                Locale.ENGLISH,
+                "No activity injector was found for %s",
                 this.javaClass.canonicalName
             )
         )

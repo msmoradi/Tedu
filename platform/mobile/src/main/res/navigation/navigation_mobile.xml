@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_mobile"
+    app:startDestination="@id/emptyFragment">
+
+    <include app:graph="@navigation/navigation_todolist" />
+    <include app:graph="@navigation/navigation_settings" />
+    <include app:graph="@navigation/navigation_addtodo" />
+    <include app:graph="@navigation/navigation_backup" />
+
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="com.phelat.tedu.navigation.EmptyFragment" />
+
+</navigation>

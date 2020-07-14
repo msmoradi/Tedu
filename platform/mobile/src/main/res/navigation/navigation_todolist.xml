@@ -7,8 +7,6 @@
     app:startDestination="@id/todolist_fragment"
     tools:ignore="UnusedNavigation">
 
-    <include app:graph="@navigation/navigation_addtodo" />
-
     <fragment
         android:id="@+id/todolist_fragment"
         android:name="com.phelat.tedu.todolist.view.TodoListFragment" />

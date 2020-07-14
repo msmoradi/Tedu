@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion build.compileSdkVersion
@@ -61,7 +62,9 @@ dependencies {
     implementation "com.google.android.material:material:$library.material"
 
     implementation "com.google.dagger:dagger:$library.dagger"
+    kapt "com.google.dagger:dagger-compiler:$library.dagger"
     implementation "com.google.dagger:dagger-android-support:$library.dagger"
+    kapt "com.google.dagger:dagger-android-processor:$library.dagger"
 
     implementation "com.google.firebase:firebase-analytics:$library.firebaseAnalytics"
 

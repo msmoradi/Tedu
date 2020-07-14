@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@id/activityRoot"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/activityRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/fragmentContainer"
+        android:id="@+id/todoListTabContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottomNavigationView" />
+        android:layout_above="@id/bottomNavigationView">
+
+        <fragment
+            android:id="@+id/todoListTab"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="false"
+            app:navGraph="@navigation/navigation_mobile" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/settingsTabContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView"
+        android:visibility="invisible">
+
+        <fragment
+            android:id="@+id/settingsTab"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="false"
+            app:navGraph="@navigation/navigation_mobile" />
+
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@id/bottomNavigationView"
